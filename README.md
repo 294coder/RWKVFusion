@@ -1,6 +1,5 @@
 # RWKVFusion
 
-
 <div align="center">
   <a href=https://scholar.google.com/citations?user=pv61p_EAAAAJ&hl=en> Zihan Cao </a> |
   <a href=https://scholar.google.com/citations?user=E5KO9XsAAAAJ&hl=en> Yu-Jie Liang </a> |
@@ -12,6 +11,6 @@
 </div>
 
 
-Official implementation of Unify language and mask guidance in an efficient network (TPAMI).
+Official implementation of [Unify language and mask guidance in an efficient network (TPAMI)](assets/paper.pdf).
 
 Codes are coming soon!
