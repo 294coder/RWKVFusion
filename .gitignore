@@ -95,3 +95,5 @@ lfs/
 data/
 !assets/*
 .cache/
+results/
+results
