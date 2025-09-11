@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EfficientImageFusion"
+version = "0.0.2"
+requires-python = ">=3.10, <3.13"
+dependencies = [
+    "numpy>=1.21.0",
+    "torch>=2.6.0",
+    "transformers>=4.30.0",
+    "timm>=0.9.6",
+    "accelerate",
+    "torchvision",
+    "matplotlib",
+    "loguru",
+    "typer",
+    "omegaconf",
+    "bitsandbytes",
+    "heavyball",
+    "fvcore",
+    "nvidia",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=6.0", "ruff>=0.11", "mypy>=1.0", "ty>=0.0.1"]
+
+[project.scripts]
+
+[tool.setuptools.packages.find]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+indent-width = 4
+extend-exclude = [".vscode", ".idea", "__pycache__", ".python-version", ".ruff.toml", "ruff.toml", "setup.cfg", "pyproject.toml"]
+exclude = ["**/__init__.py"]
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "lf"
+docstring-code-format = true
+docstring-code-line-length = 20
+
+[tool.ruff.lint]
+select = ["E501", "I", "E", "W"]
+ignore = ["E402","D103","I001","E731","E741","D202","D403","E731","E501","PLR0913","W291","E722","W293","E701"]
+
+[tool.ruff.lint.pylint]
+max-args = 20
+max-bool-expr = 10
+max-branches = 100
+max-locals = 15
+max-nested-blocks = 5
+max-positional-args = 10
+max-public-methods = 30
+max-returns = 10
+max-statements = 1000
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.mypy]
+files = ["src", "scripts"]
+follow_imports = "skip"
+warn_return_any = false
+warn_unused_configs = true
+python_version = "3.12"
+allow_untyped_globals = true
+
+[[tool.mypy.overrides]]
+module = ["timm.*", "einops.*", "torch.*", "transformers.*", "loguru.*", "typer.*", "omegaconf.*", "accelerate.*"]
+ignore_missing_imports = true
+
+[tool.ty.rules]
+index-out-of-bounds = "error"
+unused-ignore-comment = "ignore"
+redundant-cast = "ignore"
+possibly-unbound-attribute = "error"
+possibly-unbound-import = "error"
+
+[tool.ty.src]
+include = ["model", "scripts", "runners", "utils", "task_datasets"]
+exclude = ["notebook", "matlab_test_pkgs", "weight", "**/__pycache__/**"]

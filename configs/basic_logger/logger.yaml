@@ -1,0 +1,3 @@
+_target_: utils.log_utils.easy_logger
+level: INFO
+func_name: MainExp

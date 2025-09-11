@@ -1,0 +1,19 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.11.13"
+    hooks:
+      - id: ruff
+        args: [--fix]
+        exclude: ^(docs/|tests/|log_file/|matlab_test_pkgs/|results/|readmes/|teasers/|weight/|)
+      - id: ruff-format
+        exclude: ^(docs/|tests/|log_file/|matlab_test_pkgs/|results/|readmes/|teasers/|weight/|)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0 # Use a specific tag or commit hash, check for latest version
+    hooks:
+      - id: check-added-large-files # Checks for files larger than 5MB by default
+        args: ["--maxkb=20240"] # Optional: Set max size to 10MB (10240 KB)
+      - id: check-merge-conflict # Checks for files that contain merge conflict strings
+      - id: trailing-whitespace # Optional: Removes trailing whitespace
+      - id: end-of-file-fixer # Optional: Ensures files end with a newline
