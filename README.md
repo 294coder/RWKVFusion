@@ -6,7 +6,7 @@
   <a href=https://scholar.google.com/citations?user=TZs9NxkAAAAJ&hl=en> Liang-Jian Deng |
   <a href=https://scholar.google.com/citations?user=sjb_uAMAAAAJ&hl=en> Gemine Vivone</>
 
-  <a>University of Science and Technology of China (UESTC) </a><br>
+  <a>University of Electronic Science and Technology of China (UESTC) </a><br>
   <a>Institute of Methodologies for Environmental Analysis, CNR-IMAA </a>
 </div>
 
