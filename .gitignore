@@ -97,3 +97,4 @@ data/
 .cache/
 results/
 results
+!data_preparation/florence-sam/checkpoints/*

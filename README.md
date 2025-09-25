@@ -33,6 +33,9 @@ This work builds a unified image fusion framework that harnesses the unified lan
 
 # Fast Run
 
+## Data preparation
+Please refer the [data preparation](data_preparation/florence-sam/README.md) section.
+
 ## Training
 You can simply run different tasks (VIF, MEF, MFF, Medical image fusion, Pansharpening, and HISR) with the following command:
 ```bash

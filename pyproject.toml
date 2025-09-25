@@ -4,13 +4,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "EfficientImageFusion"
-version = "0.0.2"
+version = "0.0.3"
 requires-python = ">=3.10, <3.13"
 dependencies = [
     "numpy>=1.21.0",
     "torch>=2.6.0",
-    "transformers>=4.30.0",
+    "transformers==4.45.1",
     "timm>=0.9.6",
+    "supervision==0.22.0",
     "accelerate",
     "torchvision",
     "matplotlib",
@@ -34,7 +35,25 @@ dev = ["pytest>=6.0", "ruff>=0.11", "mypy>=1.0", "ty>=0.0.1"]
 target-version = "py312"
 line-length = 88
 indent-width = 4
-extend-exclude = [".vscode", ".idea", "__pycache__", ".python-version", ".ruff.toml", "ruff.toml", "setup.cfg", "pyproject.toml"]
+include = [
+    "src",
+    "scripts",
+    "model",
+    "data_preparation",
+    "runners",
+    "utils",
+    "task_datasets",
+]
+extend-exclude = [
+    ".vscode",
+    ".idea",
+    "__pycache__",
+    ".python-version",
+    ".ruff.toml",
+    "ruff.toml",
+    "setup.cfg",
+    "pyproject.toml",
+]
 exclude = ["**/__init__.py"]
 
 [tool.ruff.format]
@@ -45,7 +64,22 @@ docstring-code-line-length = 20
 
 [tool.ruff.lint]
 select = ["E501", "I", "E", "W"]
-ignore = ["E402","D103","I001","E731","E741","D202","D403","E731","E501","PLR0913","W291","E722","W293","E701"]
+ignore = [
+    "E402",
+    "D103",
+    "I001",
+    "E731",
+    "E741",
+    "D202",
+    "D403",
+    "E731",
+    "E501",
+    "PLR0913",
+    "W291",
+    "E722",
+    "W293",
+    "E701",
+]
 
 [tool.ruff.lint.pylint]
 max-args = 20
@@ -73,7 +107,16 @@ python_version = "3.12"
 allow_untyped_globals = true
 
 [[tool.mypy.overrides]]
-module = ["timm.*", "einops.*", "torch.*", "transformers.*", "loguru.*", "typer.*", "omegaconf.*", "accelerate.*"]
+module = [
+    "timm.*",
+    "einops.*",
+    "torch.*",
+    "transformers.*",
+    "loguru.*",
+    "typer.*",
+    "omegaconf.*",
+    "accelerate.*",
+]
 ignore_missing_imports = true
 
 [tool.ty.rules]

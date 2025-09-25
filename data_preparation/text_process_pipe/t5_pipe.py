@@ -1,3 +1,4 @@
+import argparse
 import os
 
 import torch
@@ -149,43 +150,65 @@ def measure_t5_params_and_flops(t5: HFEmbedder):
         print(fnn.flop_count_table(fnn.FlopCountAnalysis(t5, ["1" * 512])))
 
 
-if __name__ == "__main__":
+def main_encode_csv_captions_t5_embeddings() -> None:
+    parser = argparse.ArgumentParser(description="Encode CSV captions to T5 embeddings")
+    parser.add_argument(
+        "--csv_path",
+        type=str,
+        required=True,
+        help="Path to the CSV file containing captions",
+    )
+    parser.add_argument(
+        "--save_dir", type=str, required=True, help="Directory to save the T5 features"
+    )
+    parser.add_argument(
+        "--gpu_id", type=int, default=1, help="GPU ID to use (default: 1)"
+    )
+    parser.add_argument(
+        "--device",
+        type=str,
+        default="cuda",
+        help="Device to use for computation (default: cuda)",
+    )
+
+    args = parser.parse_args()
+
     from pathlib import Path
 
     import numpy as np
     import pandas as pd
     from safetensors.numpy import save_file
 
-    torch.cuda.set_device(1)
+    torch.cuda.set_device(args.gpu_id)
 
     t5 = load_t5()
     measure_t5_params_and_flops(t5)
 
-    # ##* prepare txt features
-    csv_path = (
-        "/Data4/cao/ZiHanCao/exps/florence-sam/results/captions/caption_MFF-MFFW.csv"
-    )
-    name = Path(csv_path).stem
+    csv_path = Path(args.csv_path)
+    name = csv_path.stem
     name = name.replace("caption", "t5_feature")
-    save_dir = "/Data4/cao/ZiHanCao/exps/florence-sam/results/caption_t5_feat/t5_feature_mff_mffw"
+    save_dir = Path(args.save_dir)
     csv_file = pd.read_csv(csv_path, dtype=str)
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
 
-    save_path = os.path.join(save_dir, name + ".safetensors")
+    if not save_dir.exists():
+        save_dir.mkdir(parents=True, exist_ok=True)
+
+    save_path = save_dir / f"{name}.safetensors"
     print(f"save features to file: {save_path}")
 
     file_name = csv_file.iloc[:, 0]
     caption = csv_file["caption"]
     h5_features = {}
     for i, (f_name, prompt) in enumerate(zip(file_name, caption), 1):
-        txt, txt_ids = prepare_txt_with_h5(t5, prompt, bs=1, device="cuda")
+        txt, txt_ids = prepare_txt_with_h5(t5, prompt, bs=1, device=args.device)
         f_name = str(f_name)
-        # save_path = os.path.join(save_dir, str(f_name) + '.npy')
         txt = txt.to(torch.float16).cpu().numpy()
-        # np.save(save_path, txt)
         h5_features[f_name] = txt
         print(f"[{i}/{len(file_name)}] - save {f_name} to dict")
 
     save_file(h5_features, save_path)
     print(f"save features to file: {save_path}")
+
+
+if __name__ == "__main__":
+    main_encode_csv_captions_t5_embeddings()

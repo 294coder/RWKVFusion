@@ -1,0 +1,15 @@
+IMAGE_OPEN_VOCABULARY_DETECTION_MODE = "open vocabulary detection + image masks"
+IMAGE_CAPTION_GROUNDING_MASKS_MODE = "caption + grounding + image masks"
+IMAGE_CAPTION = "caption only"  # add by myself
+
+IMAGE_INFERENCE_MODES = [
+    IMAGE_OPEN_VOCABULARY_DETECTION_MODE,
+    IMAGE_CAPTION_GROUNDING_MASKS_MODE,
+    IMAGE_CAPTION,
+]
+
+VIDEO_OPEN_VOCABULARY_DETECTION_MODE = "open vocabulary detection + video masks"
+
+VIDEO_INFERENCE_MODES = [
+    VIDEO_OPEN_VOCABULARY_DETECTION_MODE
+]
