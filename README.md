@@ -40,14 +40,14 @@ This work builds a unified image fusion framework that harnesses the unified lan
 
 The raw datasets can be access:
 - Pansharpening: we follow the [[Pan-Collection]](https://github.com/liangjiandeng/PanCollection), please download the H5 data format dataset. Datasets used at paper are: WV3, GF2, and QB.
-- HISR: we follow the [[PSRT]](https://pan.baidu.com/s/1SLR0QKVyMWOOuYIYgcNv_Q?pwd=7ja6#list/path=%2F) paper, please download the CAVE x4 and Harvard x4 datasets.
-- VIF, MEF, MFF, and MIF tasks, thanks for previous works, we collected VIF-LLVIP, VIF-M3FD, VIF-MSRS, VIF-RoadScene, VIF-TNO, MEF-SICE, MEF-MEFB, MFF-RealMFF, MFF-Lytro, MFF-MFFW, and MIF-Harvard. You can download them from [[BaiduYunDisk]]().
+- HMIF: we follow the [[PSRT]](https://pan.baidu.com/s/1SLR0QKVyMWOOuYIYgcNv_Q?pwd=7ja6#list/path=%2F) paper, please download the Chikusei x4 and Pavia x4 datasets.
+- VIF, MEF, MFF, and MIF tasks, thanks for previous works, we collected VIF-LLVIP, VIF-M3FD, VIF-MSRS, VIF-RoadScene, VIF-TNO, MEF-SICE, MEF-MEFB, MFF-RealMFF, MFF-Lytro, MFF-MFFW, and MIF-Harvard. You can download them from [[Hugginface]](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main).
 
 For mask and caption preparation for the RWKVFusion model,
 please refer the [data preparation](data_preparation/README.md) section.
 
 For your convience, we provide the preprocessed data:
-you can download at [[BaiduYunDisk]]()
+you can download at [[Hugginface]](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main)
 
 ## Training
 You can simply run different tasks (VIF, MEF, MFF, Medical image fusion, Pansharpening, and HISR) with the following command:
