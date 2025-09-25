@@ -3,7 +3,7 @@
 <div align="center">
   <a href=https://scholar.google.com/citations?user=pv61p_EAAAAJ&hl=en> Zihan Cao </a> |
   <a href=https://scholar.google.com/citations?user=E5KO9XsAAAAJ&hl=en> Yu-Jie Liang </a> |
-  <a href=https://scholar.google.com/citations?user=TZs9NxkAAAAJ&hl=en> Liang-Jian Deng |
+  <a href=https://scholar.google.com/citations?user=TZs9NxkAAAAJ&hl=en> Liang-Jian Deng </a> |
   <a href=https://scholar.google.com/citations?user=sjb_uAMAAAAJ&hl=en> Gemine Vivone</>
 
   <a>University of Electronic Science and Technology of China (UESTC) </a><br>
@@ -41,13 +41,43 @@ This work builds a unified image fusion framework that harnesses the unified lan
 The raw datasets can be access:
 - Pansharpening: we follow the [[Pan-Collection]](https://github.com/liangjiandeng/PanCollection), please download the H5 data format dataset. Datasets used at paper are: WV3, GF2, and QB.
 - HMIF: we follow the [[PSRT]](https://pan.baidu.com/s/1SLR0QKVyMWOOuYIYgcNv_Q?pwd=7ja6#list/path=%2F) paper, please download the Chikusei x4 and Pavia x4 datasets.
-- VIF, MEF, MFF, and MIF tasks, thanks for previous works, we collected VIF-LLVIP, VIF-M3FD, VIF-MSRS, VIF-RoadScene, VIF-TNO, MEF-SICE, MEF-MEFB, MFF-RealMFF, MFF-Lytro, MFF-MFFW, and MIF-Harvard. You can download them from [[Hugginface]](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main).
+- VIF, MEF, MFF, and MIF tasks, thanks for previous works, we collected VIF-LLVIP, VIF-M3FD, VIF-MSRS, VIF-RoadScene, VIF-TNO, MEF-SICE, MEF-MEFB, MFF-RealMFF, MFF-Lytro, MFF-MFFW, and MIF-Harvard. You can download them from [[Huggingface]](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main).
 
 For mask and caption preparation for the RWKVFusion model,
 please refer the [data preparation](data_preparation/README.md) section.
 
 For your convience, we provide the preprocessed data:
-you can download at [[Hugginface]](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main)
+you can download at [[Huggingface]](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main)
+
+The overall data structure should be:
+<details>
+  <summary>Data structure (click to unfold)</summary>
+<pre><code>
+data
+├── HMIF
+│   ├── Cheikusei
+│   └── Pavia
+├── MEF
+│   ├── MEF-MEFB
+│   └── MEF-SICE
+├── MFF
+│   ├── MFF-Lytro
+│   ├── MFF-MFFW
+│   ├── MFF-RealMFF
+│   └── MFI-WHU
+├── MIF
+│   └── MedHarvard
+├── pansharpening
+│   ├── gf
+│   ├── qb
+│   └── wv3
+└── VIF
+    ├── VIF-LLVIP
+    ├── VIF-MSRS
+    ├── VIF-RoadScene_and_TNO
+    └── VIF-TNO
+</code></pre>
+</details>
 
 ## Training
 You can simply run different tasks (VIF, MEF, MFF, Medical image fusion, Pansharpening, and HISR) with the following command:
@@ -69,7 +99,7 @@ to start inference on Pansharpening task, for example. Please check the [`script
 ## Metrics
 We rewrite the VIF, MEF, and MFF metrics in Python, which originally implemented in MATLAB. Please check the [`scripts/py_scripts`](scripts/py_scripts) directory for more details.
 
-For Pansharpening and HISR tasks, we use the [Pan-collection]() provided [Matlab package](matlab_test_pkgs/Pansharpening_Hyper_SR_Matlab_Test_Package) for evaluation.
+For Pansharpening and HISR tasks, we use the [Pan-collection](https://github.com/liangjiandeng/PanCollection) provided [Matlab package](matlab_test_pkgs/Pansharpening_Hyper_SR_Matlab_Test_Package) for evaluation.
 
 # Results
 You can access the results of all tasks of RWKVFusion at [BaiduYunDisk-WIP]() (Still in progress).
