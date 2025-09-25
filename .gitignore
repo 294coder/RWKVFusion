@@ -98,3 +98,4 @@ data/
 results/
 results
 !data_preparation/florence-sam/checkpoints/*
+!data_preparation/florence-sam/segment-anything-2/assets/*

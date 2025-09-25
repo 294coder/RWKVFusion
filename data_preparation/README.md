@@ -19,7 +19,7 @@ otherwise, the script will fail.
 
 ## Pretrained Models
 For fast running the scripts, the checkpoints are provided in:
-- SAM2 model: [[Huggingface]](https://huggingface.co/facebook/sam2.1-hiera-base-plus/tree/main)
+- SAM2 model: [[Huggingface]](https://huggingface.co/facebook/sam2-hiera-base-plus/tree/main)
 Download _`sam2_hiera_base_plus.pt`_ model checkpoint and put it into the `checkpoints/` folder.
 - Florence2 model: the huggingface AutoModel class will download the model automatically.
 

@@ -28,13 +28,26 @@ This work builds a unified image fusion framework that harnesses the unified lan
 
 
 # News
+**[2025/09/25]**: The data preparation code is released.
+
 **[2025/09/11]**: WIP - We released the training and inference code of RWKVFusion. We are now preparing the pre-trained checkpoints and used dataset. We will soon release the results. Please stay tuned.
 
 
 # Fast Run
 
+
 ## Data preparation
-Please refer the [data preparation](data_preparation/README.md) section.
+
+The raw datasets can be access:
+- Pansharpening: we follow the [[Pan-Collection]](https://github.com/liangjiandeng/PanCollection), please download the H5 data format dataset. Datasets used at paper are: WV3, GF2, and QB.
+- HISR: we follow the [[PSRT]](https://pan.baidu.com/s/1SLR0QKVyMWOOuYIYgcNv_Q?pwd=7ja6#list/path=%2F) paper, please download the CAVE x4 and Harvard x4 datasets.
+- VIF, MEF, MFF, and MIF tasks, thanks for previous works, we collected VIF-LLVIP, VIF-M3FD, VIF-MSRS, VIF-RoadScene, VIF-TNO, MEF-SICE, MEF-MEFB, MFF-RealMFF, MFF-Lytro, MFF-MFFW, and MIF-Harvard. You can download them from [[BaiduYunDisk]]().
+
+For mask and caption preparation for the RWKVFusion model,
+please refer the [data preparation](data_preparation/README.md) section.
+
+For your convience, we provide the preprocessed data:
+you can download at [[BaiduYunDisk]]()
 
 ## Training
 You can simply run different tasks (VIF, MEF, MFF, Medical image fusion, Pansharpening, and HISR) with the following command:
