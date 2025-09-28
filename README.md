@@ -1,4 +1,4 @@
-# RWKVFusion [TPAMI 2025]
+# Unify Language and Mask Guidance in an Efficient Network [TPAMI 2025]
 
 <div align="center">
   <a href=https://scholar.google.com/citations?user=pv61p_EAAAAJ&hl=en> Zihan Cao </a> |
@@ -10,10 +10,9 @@
   <a>Institute of Methodologies for Environmental Analysis, CNR-IMAA </a>
 </div>
 
+[[Paper](assets/paper.pdf)] [[Data](https://huggingface.co/datasets/iamzihan/RWKVFusionDataset/tree/main)] [[Benchmark](https://pan.baidu.com/s/1Tfbc1xTu2njYrTxwVWdkvQ?pwd=djij)]
 
 Official implementation of [Unify language and mask guidance in an efficient network (TPAMI)](https://ieeexplore.ieee.org/document/11091495).
-
-This work builds a unified image fusion framework that harnesses the unified language, mask guidance, and an RWKV-based network to fuse images.
 
 <!-- Images -->
 <div align="center">
@@ -28,6 +27,8 @@ This work builds a unified image fusion framework that harnesses the unified lan
 
 
 # News
+**[2025/09/28]**: The benckmark results are released.
+
 **[2025/09/25]**: The data preparation code is released.
 
 **[2025/09/11]**: WIP - We released the training and inference code of RWKVFusion. We are now preparing the pre-trained checkpoints and used dataset. We will soon release the results. Please stay tuned.
@@ -102,7 +103,7 @@ We rewrite the VIF, MEF, and MFF metrics in Python, which originally implemented
 For Pansharpening and HISR tasks, we use the [Pan-collection](https://github.com/liangjiandeng/PanCollection) provided [Matlab package](matlab_test_pkgs/Pansharpening_Hyper_SR_Matlab_Test_Package) for evaluation.
 
 # Results
-You can access the results of all tasks of RWKVFusion at [BaiduYunDisk-WIP]() (Still in progress).
+You can access the results of all tasks of RWKVFusion at [BaiduYunDisk](https://pan.baidu.com/s/1Tfbc1xTu2njYrTxwVWdkvQ?pwd=djij) (Extract code: djij).
 
 # Citations
 If you find this work useful, please kindly cite our paper:
